@@ -1,0 +1,14 @@
+version: v1beta1
+build:
+  roots:
+    - .
+  excludes:
+    - node_modules
+lint:
+  use:
+    - DEFAULT
+  except:
+    - ENUM_ZERO_VALUE_SUFFIX
+breaking:
+  use:
+    - WIRE_JSON
