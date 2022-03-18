@@ -35,7 +35,7 @@ const Users = () => {
   }, [users])
 
   useEffect(() => {
-    if (!['', null].includes(textFieldValue)) {
+    if (textFieldValue === '') {
       setDisplayedUsers(users)
     }
     setDisplayedUsers(users.filter((u) => u.username.includes(textFieldValue)))
@@ -49,14 +49,13 @@ const Users = () => {
 
   return (
     <div>
-      {' '}
       <TextField
         onChange={handleTextFieldChange}
         value={textFieldValue}
         placeholder="Search..."
         subClassName="bg-black"
       />
-      <UserTable users={displayedUsers} />{' '}
+      <UserTable users={displayedUsers} />
     </div>
   )
 }
