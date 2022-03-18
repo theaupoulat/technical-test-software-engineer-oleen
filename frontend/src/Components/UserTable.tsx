@@ -23,8 +23,10 @@ interface UserTableProps {
 const UserTable = ({ users }: UserTableProps) => (
   <Table>
     <thead>
-      <th>Nom</th>
-      <th>Email</th>
+      <tr>
+        <th>Nom</th>
+        <th>Email</th>
+      </tr>
     </thead>
     <tbody>
       {users.map((user, index) => (
