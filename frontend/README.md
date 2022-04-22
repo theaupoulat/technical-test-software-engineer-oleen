@@ -1,3 +1,22 @@
+# Frontend
+
+## Dépendances système
+- yarn
+
+## Setup 
+
+``` 
+# Install deps
+$ yarn 
+
+```
+
+## Démarrage de l'appli
+```
+# yarn start
+```
+
+La suite est la documentation officielle de create-react-app
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

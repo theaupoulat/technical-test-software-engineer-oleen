@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Dépendances système
+- ruby
+- bundler
+- sqlite
 
-Things you may want to cover:
+# Setup 
 
-* Ruby version
+``` 
+# Install deps
+$ bundle
 
-* System dependencies
+# Init db
+$ ./bin/setup
 
-* Configuration
+# Seed db
+$ bundle exec rake db:sample:populate
+```
 
-* Database creation
+# Run server
 
-* Database initialization
+```
+$ bundle exec rails s
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

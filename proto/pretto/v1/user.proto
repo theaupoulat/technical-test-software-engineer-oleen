@@ -6,7 +6,7 @@ package pretto.v1;
 import "google/protobuf/timestamp.proto";
 
 service UserService {
-  rpc fetchAll(FetchAllRequest) returns (FetchAllResponse);
+  rpc FetchAll(FetchAllRequest) returns (FetchAllResponse);
 }
 
 
