@@ -15,9 +15,7 @@ const Users = () => {
     { username: 'Francyne Petrolli', email: 'fpetrolli9@constantcontact.com' }
   ]
 
-  return (
-    <UserTable users={displayedUsers} />
-  )
+  return <UserTable users={displayedUsers} />
 }
 
 export default Users
