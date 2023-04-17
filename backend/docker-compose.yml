@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:13.9
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment: &db_env
+      POSTGRES_PASSWORD: password
+    healthcheck:
+      test: pg_isready -U postgres -h db
+      interval: 5s
+
+
+volumes:
+  db-data:
+    driver: local
