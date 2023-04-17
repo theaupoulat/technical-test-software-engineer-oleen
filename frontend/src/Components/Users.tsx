@@ -1,62 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import { grpc } from '@improbable-eng/grpc-web'
-import { NodeHttpTransport } from '@improbable-eng/grpc-web-node-http-transport'
-import { UserServiceClient } from '../proto/pretto/v1/user_pb_service'
-import { FetchAllRequest, User } from '../proto/pretto/v1/user_pb'
-import TextField from './TextField'
+import React from 'react'
 import UserTable from './UserTable'
 
-grpc.setDefaultTransport(NodeHttpTransport())
-const userService = new UserServiceClient('http://localhost:3000/grpc')
-
 const Users = () => {
-  const [users, setUsers] = useState([] as User.AsObject[])
-  const [displayedUsers, setDisplayedUsers] = useState([] as User.AsObject[])
-  const [textFieldValue, setTextFieldValue] = useState('')
-
-  const fetchUsers = () => {
-    const fetchAllRequest = new FetchAllRequest()
-    userService.fetchAll(fetchAllRequest, (err, res) => {
-      if (err !== null) {
-        console.log(err)
-      }
-      if (res !== null) {
-        setUsers(res.getUsersList().map((user) => user.toObject()))
-      }
-    })
-  }
-
-  useEffect(() => {
-    fetchUsers()
-  }, [])
-
-  useEffect(() => {
-    setDisplayedUsers(users)
-  }, [users])
-
-  useEffect(() => {
-    if (textFieldValue === '') {
-      setDisplayedUsers(users)
-    }
-    setDisplayedUsers(users.filter((u) => u.username.includes(textFieldValue)))
-  }, [textFieldValue])
-
-  const handleTextFieldChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setTextFieldValue(event.currentTarget.value)
-  }
+  const displayedUsers = [
+    { username: 'Tobit Jessup', email: 'tjessup0@w3.org' },
+    { username: 'Debby Aucourte', email: 'daucourte1@mail.ru' },
+    { username: 'Phyllys Yurivtsev', email: 'pyurivtsev2@soup.io' },
+    { username: 'Gal Sheirlaw', email: 'gsheirlaw3@harvard.edu' },
+    { username: 'Warner Iamittii', email: 'wiamittii4@yahoo.co.jp' },
+    { username: 'Lillis McGorley', email: 'lmcgorley5@hibu.com' },
+    { username: 'Twila Mugg', email: 'tmugg6@howstuffworks.com' },
+    { username: 'Geralda Lammie', email: 'glammie7@yale.edu' },
+    { username: 'Julio Anster', email: 'janster8@blogs.com' },
+    { username: 'Francyne Petrolli', email: 'fpetrolli9@constantcontact.com' }
+  ]
 
   return (
-    <div>
-      <TextField
-        onChange={handleTextFieldChange}
-        value={textFieldValue}
-        placeholder="Search..."
-        subClassName="bg-black"
-      />
-      <UserTable users={displayedUsers} />
-    </div>
+    <UserTable users={displayedUsers} />
   )
 }
 

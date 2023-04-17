@@ -1,5 +1,4 @@
 import React from 'react'
-
 import UserList from './Components/Users'
 
 function App() {

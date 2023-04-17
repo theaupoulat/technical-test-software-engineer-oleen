@@ -1,15 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import tw from 'twin.macro'
 
-const Table = styled.table`
-  ${tw`table-auto text-left`}
-  & {
-    tr {
-      ${tw`font-light`}
-    }
-  }
-`
+const Table = styled.table``
 
 interface User {
   username: string
