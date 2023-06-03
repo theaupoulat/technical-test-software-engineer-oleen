@@ -1,12 +1,5 @@
 # Introduction
 
-La première chose à faire sur ce repo est le setup. Pour cela, tu dois lire dans l'ordre les readme.md des dossiers:
-1. proto
-2. backend
-3. frontend
-
-Ce repo est une application fullstack présentant des technologies clés chez Pretto. Il y est implémenté une fonctionnalité très simple : la recherche d'utilisateurs présents dans la base de données. Tout y est implémenté de manière *très* rudimentaire et naïve. 
-
 # Partie 1: Exercice technique
 Le but de la première partie est pour toi de sélectionner une partie du projet et de l'améliorer de quelque façon que ce soit. Cela nous permettra de découvrir: 
 1. le type de problématique que tu as naturellement envie de résoudre (s'il sagit de front pur, tu auras normalement reçu un lien vers une maquette Figma)
