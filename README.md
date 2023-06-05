@@ -11,9 +11,7 @@ L'objectif de ce test technique est d'évaluer
 
 ## Sujet
 
-Au cours de l'expérience Pretto, un client va régulièrement prendre contact avec son conseiller. Pour cela, il doit prendre rendez-vous sur son espace client via une interface similaire à celle ci
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/444761f3-6f00-4aee-8940-f7f3e43c8e68/Untitled.png)
+Au cours de l'expérience Pretto, un client va régulièrement prendre contact avec son conseiller. Pour cela, il doit prendre rendez-vous sur son espace client via une interface similaire à [celle ci](https://www.figma.com/file/C5tgby7R14aoUoTU4yy2Ic/Test-Technique?type=design&node-id=0-1&t=TArsrLIVvCLEKnSX-0).
 
 Cette grille est généré à partir de plusieurs points de données:
 
@@ -23,11 +21,11 @@ Cette grille est généré à partir de plusieurs points de données:
     
     ```yaml
     - name: "RDV #1"
-    	start: 2020-02-01T08:00:00Z
-    	end: 2020-02-01T08:30:00Z
+      start: 2020-02-01T08:00:00Z
+      end: 2020-02-01T08:30:00Z
     - name: "RDV #2"
-    	start: 2020-02-01T08:45:00Z
-    	end: 2020-02-01T09:15:00Z
+      start: 2020-02-01T08:45:00Z
+      end: 2020-02-01T09:15:00Z
     ```
     
 
@@ -38,26 +36,26 @@ Cette grille est généré à partir de plusieurs points de données:
     - allowDayAndTime: # horaires de travail
       # day est compris dans [1..7]
       # start/end : [00:00 .. 23:59]
-    	- day: 1 # lundi
-    		start: "08:00"
-    		end: "12:00"
-    	- day: 1 # lundi
-    		start: "13:00"
-    		end: "17:30"
-    	- day: 2 # mardi
-    		start: "08:30"
-    		end: "13:00"
-    	- day: 2 # mardi
-    		start: "14:00"
-    		end: "18:00"
-    	- ...
+      - day: 1 # lundi
+        start: "08:00"
+        end: "12:00"
+      - day: 1 # lundi
+        start: "13:00"
+        end: "17:30"
+      - day: 2 # mardi
+        start: "08:30"
+        end: "13:00"
+      - day: 2 # mardi
+        start: "14:00"
+        end: "18:00"
+      - ...
     - blockSlot: # vacances
-    	- start: 2020-07-01
-    		end: 2020-07-07
+      - start: 2020-07-01
+        end: 2020-07-07
       - ...
     - allowSlot: # permanences du samedi
-    	- start: "2021-03-06T08:00:00Z"
-    		end: "2021-03-06T16:00:00Z"
+      - start: "2021-03-06T08:00:00Z"
+        end: "2021-03-06T16:00:00Z"
     ```
     
 - Les contraintes du rendez vous :
