@@ -82,6 +82,7 @@ Créer un programme permettant de calculer les disponibilités d'un expert.
 ## Exercice - Partie 2
 
 Créer une application frontend en utilisant React qui reproduit le Figma ce dessous 
-**(TODO: faire un figma de display des slots disponibles)**
+
+https://www.figma.com/file/C5tgby7R14aoUoTU4yy2Ic/Test-Technique?type=design&node-id=0-1&t=TArsrLIVvCLEKnSX-0
 
 Bonus: Créer une application backend avec l’algorithme de la partie précédente et faire communiquer les 2 applications

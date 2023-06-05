@@ -12,20 +12,6 @@
   end: 2021-03-01T19:15:00Z
 ```
 
-# horaires de travail du conseiller
-
-```yaml
----
-
-- allowDayAndTime: # horaires de travail
-  - day: 1 # lundi
-    start: "08:00"
-    end: "12:00"
-  - day: 1 # lundi
-    start: "13:00"
-    end: "17:30"
-```
-
 # paramètres
 ```json
 {
