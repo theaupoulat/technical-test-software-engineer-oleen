@@ -28,12 +28,12 @@
 - name: "RDV #8"
   start: 2021-03-04T08:30:00Z
   end: 2021-03-04T10:00:00Z
-- - name: "RDV #9"
+- name: "RDV #9"
   start: 2021-03-04T14:00:00Z
   end: 2021-03-04T16:00:00Z
 - name: "RDV #10"
   start: 2021-03-04T15:00:00Z
-    end: 2021-03-04T15:30:00Z
+  end: 2021-03-04T15:30:00Z
 ```
 
 # horaires de travail du conseille

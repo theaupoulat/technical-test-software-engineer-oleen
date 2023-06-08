@@ -71,11 +71,11 @@ Créer un programme permettant de calculer les disponibilités d'un expert.
 2.  N'hésitez pas à laisser des commentaires, écrire des tests unitaires et laisser un minimum de documentation pour lancer votre programme.
 3. Ne restez pas bloqué à cause d'une contrainte qui vous pose problème, soyez libre d'ignorer une difficulté pour avancer. Mieux vaut une solution partielle qui fonctionne bien qu'une solution complète qui fonctionne mal. J’ai volontairement omis l'attendu de chaque jeux de tests parce que ça fait aussi parti du job de déterminer comment le service va fonctionner.
 
-[Jeux de tests faciles ](https://www.notion.so/Jeux-de-tests-faciles-69f65c25f5354ca9a70d862ecc82a45c?pvs=21)
+[Jeux de tests faciles ](./easy_test_case.md)
 
-[Jeux de test moins faciles](https://www.notion.so/Jeux-de-test-moins-faciles-a4d8020c996549deaf5224e05e262d2b?pvs=21)
+[Jeux de test moins faciles](./medium_test_case.md)
 
-[Jeux de test encore moins facile](https://www.notion.so/Jeux-de-test-encore-moins-facile-2e1ebd07fb87491e8ec214ee902fb9a3?pvs=21)
+[Jeux de test encore moins facile](./hard_test_case.md)
 
 ## Exercice - Partie 2
 
