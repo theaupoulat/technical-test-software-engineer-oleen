@@ -104,9 +104,9 @@ class Calendlo
     end
 
     # 2. A holiday that ends in the future
-    curr_end = Time.parse(curr[:end])
+    curr_end = Date.parse(curr[:end])
 
-    if curr_end > ref_time
+    if curr_end >= ref_time.to_date
       return
     end
 
@@ -144,11 +144,11 @@ class Calendlo
 
   def get_available_slots(from, to, meeting_duration, preparation_duration)
     working_timetable = build_working_timetable()
-## reset pointers
     start_dt = Date.parse(from)
     end_dt = Date.parse(to)
 
     available_slots = {}
+    available_slots_arr = []
 
     (start_dt..end_dt).each do |date_to_parse|
       next if date_to_parse == start_dt && date_to_parse == end_dt
@@ -162,7 +162,7 @@ class Calendlo
       ensure_unavailable_slot_in_the_future(date)
 
       # create slots array for date
-      date_formatted = date.strftime("%Y/%m/%d")
+      date_formatted = date.strftime("%Y-%m-%d")
       slots_of_the_day = []
 
       closest_holidays_in_future = current_value_at_pointer(:holidays)
@@ -170,21 +170,34 @@ class Calendlo
 
       # check if day is in a holiday spot
       # TODO implement date_between?
-      next if closest_holidays_in_future && date_between?(date_to_parse, Date.parse(closest_holidays_in_future[:start]), Date.parse(closest_holidays_in_future[:end]))
+      # binding.pry if date_formatted == "2021-03-02"
+      if closest_holidays_in_future && date_between?(date_to_parse, Date.parse(closest_holidays_in_future[:start]), Date.parse(closest_holidays_in_future[:end]))
+        available_slots[date_formatted] = slots_of_the_day
+        next
+      end
 
       # check if day is worked
 
       # we suppose they do not work on sundays
-      next if date.sunday?
+      if date.sunday?
+        available_slots[date_formatted] = slots_of_the_day
+        next
+      end
 
       # check if it is a worked saturday
       workable_saturday = date.saturday? && closest_sat_in_future && same_day?(date, closest_sat_in_future[:start])
-      next if date.saturday? && (!closest_sat_in_future || !workable_saturday)
+      if date.saturday? && (!closest_sat_in_future || !workable_saturday)
+        available_slots[date_formatted] = slots_of_the_day
+        next
+      end
 
       working_hours = workable_saturday ? format_saturday_hours(closest_sat_in_future) : working_timetable[date.wday]
 
       # check that there are working hours
-      next if !working_hours or working_hours.length == 0
+      if !working_hours or working_hours.length == 0
+        available_slots[date_formatted] = slots_of_the_day
+        next
+      end
 
       # iterate through each block
       for working_period in working_hours
@@ -216,9 +229,10 @@ class Calendlo
           ensure_unavailable_slot_in_the_future(start_of_slot_with_preparation)
           next_unavailable = current_value_at_pointer(:unavailable_slots)
 
+          formatted_slot = slot.round(0).iso8601
           # if no unavailability in the future, add availability directly
           if !next_unavailable
-            slots_of_the_day.append(slot)
+            slots_of_the_day.append(formatted_slot)
             slot += @@slot_gap_constant
             next
           end
@@ -240,7 +254,7 @@ class Calendlo
           end
 
           # add slot to list of availables for the day
-          slots_of_the_day.append(slot)
+          slots_of_the_day.append(formatted_slot)
 
           # increment to check next slot
           slot += @@slot_gap_constant
