@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tbody:before {
+    content:"@";
+    display:block;
+    line-height:10px;
+    text-indent:-99999px;
+} */
+
+table td + td { border-left:1px solid #D3D3D3; }
+thead {
+    border-right: 1px solid red;
+}
