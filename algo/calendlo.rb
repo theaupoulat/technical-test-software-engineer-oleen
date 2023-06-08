@@ -144,7 +144,6 @@ class Calendlo
 
   def get_available_slots(from, to, meeting_duration, preparation_duration)
     working_timetable = build_working_timetable()
-    ## reset pointers
     start_dt = Date.parse(from)
     end_dt = Date.parse(to)
 
